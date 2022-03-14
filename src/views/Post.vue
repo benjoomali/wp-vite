@@ -5,7 +5,9 @@
 
   // Get the slug param from URL in Vue Router
   const slugOptions = useRoute().params.slug
-  const baseURL = inject('$baseURL') + "/posts?slug=" + slugOptions
+  // Changes the format from light to standard, allowing attributes like image to return correctly.
+  const standardACF = "&acf_format=standard"
+  const baseURL = inject('$baseURL') + "/posts?slug=" + slugOptions + standardACF
   const { data, error, retry } = useFetch(baseURL)
 
 </script>
@@ -20,6 +22,10 @@
       <div v-else-if="data">
         <div v-for="post in data" :key="post">
           <div v-html="post.content.rendered" class="prose lg:prose-xl mx-auto px-4"></div>
+          <div v-if="post.acf" class="prose lg:prose-xl mx-auto px-4 mt-8">
+            <h2>ACF Data</h2>
+            <pre>{{ post.acf }}</pre>
+          </div>
         </div>
       </div>
       <div v-else>Loading Post...</div>

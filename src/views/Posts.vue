@@ -9,10 +9,15 @@
 
 <template>
   <div class="relative">
-    <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 flex flex-col lg:py-16 lg:px-8">
+    <div
+      class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 flex flex-col lg:py-16 lg:px-8 space-y-4"
+    >
       <h2
         class="text-3xl leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 mb-5"
       >Posts - Generates a list of Posts from Wordpress</h2>
+      <p
+        class="text-sm"
+      >Please update baseURL in main.js to fetch a list of posts from your Wordpress website.</p>
       <div v-if="error" class="space-y-4">
         <p>Posts could not be loaded.</p>
         <div>

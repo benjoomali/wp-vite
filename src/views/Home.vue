@@ -8,8 +8,10 @@
       >
         <HelloWorld />
       </h2>
-      <Toggle />
-      <p>Please update baseURL in main.js to fetch a list of posts from your Wordpress website.</p>
+      <h2 class="text-lg">
+        Headless UI Toggle
+        <Toggle />
+      </h2>
     </div>
   </div>
 </template>
